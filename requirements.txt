@@ -1,0 +1,15 @@
+fastapi
+uvicorn
+pydantic
+Jinja2
+python-dotenv
+openai
+sqlalchemy
+psycopg2-binary==2.9.12
+azure-core
+azure-search-documents
+langchain-core
+langchain-openai
+langchain-experimental
+pymupdf4llm
+python-multipart
