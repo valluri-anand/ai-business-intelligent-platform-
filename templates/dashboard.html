@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bussiness Intelligent Platform</title>
+    <link rel="stylesheet" href="/static/style.css?v=3">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="app-layout">
+    <!-- Top Navigation -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="brand-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M9 10a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1v-4z"/></svg>
+            </div>
+            <span class="brand-name">AI Powered Business Intelligence Platform </span>
+        </div>
+        
+        <div class="nav-right">
+            <button onclick="toggleCopilot()" class="modern-btn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="14" height="14" style="margin-right: 6px; vertical-align: middle;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Toggle Copilot
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Workspace -->
+    <div class="workspace">
+        <!-- Left Sidebar: Controls & Upload -->
+        <aside class="workspace-sidebar">
+            <div class="sidebar-section">
+                <h3 class="section-heading">Data Ingestion</h3>
+                <div class="upload-zone" id="dropzone" onclick="document.getElementById('fileInput').click()">
+                    <svg class="upload-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                    <span>Select or drop PDF report</span>
+                    <input type="file" id="fileInput" class="hidden-input" accept=".pdf">
+                </div>
+                
+                <div class="upload-progress" id="progressContainer">
+                    <div class="progress-text">
+                        <span id="progressStatus">Processing...</span>
+                        <span id="progressPercent">0%</span>
+                    </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressBarFill"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h3 class="section-heading">Overview</h3>
+                <div class="metric-box">
+                    <span class="metric-label">Entities Tracked</span>
+                    <span class="metric-value">{{ total_companies }}</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">Reports Analyzed</span>
+                    <span class="metric-value">{{ total_reports }}</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Center Content: KPIs -->
+        <main class="workspace-main">
+            {% if metrics %}
+            <div class="kpi-dashboard">
+                <h2 class="dashboard-title">Financial Insights</h2>
+                <div class="kpi-grid">
+                    {% set kpi_defs = [
+                        ('Revenue', 'revenue', 'M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z'),
+                        ('Net Income', 'net_income', 'M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z'),
+                        ('Operating Income', 'operating_income', 'M21 13.255A9.001 9.001 0 1111.75 3v9.25H21z M14.75 3.245A8.968 8.968 0 0120.755 9.25H14.75V3.245z'),
+                        ('Operating Cash Flow', 'cash_flow', 'M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z'),
+                        ('Total Assets', 'total_assets', 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4'),
+                        ('Total Liabilities', 'total_liabilities', 'M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3')
+                    ] %}
+                    
+                    {% for title, key, icon in kpi_defs %}
+                    <div class="kpi-panel">
+                        <div class="kpi-header">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="{{ icon }}"/></svg>
+                            <h3>{{ title }}</h3>
+                        </div>
+                        <div class="kpi-list">
+                            {% for row in metrics %}
+                            {% if row[key] %}
+                            <div class="kpi-item">
+                                <div class="kpi-item-top">
+                                    <span class="kpi-company">{{ row.company }} <span class="kpi-year">{{ row.year }}</span></span>
+                                    <span class="kpi-val kpi-val-number">{{ row[key] }}</span>
+                                </div>
+                                <div class="kpi-bar-track"><div class="kpi-bar-fill"></div></div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="insights-section">
+                    <div class="insights-header">
+                        <h2>Qualitative Insights</h2>
+                        <select id="companySelect" class="modern-select" onchange="switchCompany(this.value)">
+                            {% for row in metrics %}
+                                <option value="{{ row.company }}">{{ row.company }} ({{ row.year }})</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="insights-grid">
+                        <div class="insight-box">
+                            <h4>Key Growth Drivers</h4>
+                            <ul id="growthDriversList" class="insight-list"></ul>
+                        </div>
+                        <div class="insight-box risk-box">
+                            <h4>Primary Risk Factors</h4>
+                            <ul id="riskFactorsList" class="insight-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="empty-state">
+                <div class="empty-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                </div>
+                <h2>Workspace is Empty</h2>
+                <p>Upload a financial report (e.g. 10-K PDF) from the sidebar to begin analysis.</p>
+            </div>
+            {% endif %}
+        </main>
+
+        <!-- Right Sidebar: AI Assistant -->
+        <aside class="workspace-assistant" id="aiCopilotPanel">
+            <div class="assistant-header" style="justify-content: space-between;">
+                <div style="display:flex; align-items:center; gap:8px;">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <h3>AI Copilot</h3>
+                </div>
+                <button onclick="toggleCopilot()" class="close-btn" aria-label="Close Copilot" style="background:none;border:none;cursor:pointer;color:var(--text-muted);">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" width="16" height="16"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="chat-window" id="chatMessages">
+                <div class="chat-msg bot">
+                    <div class="msg-bubble">Hi, I am ready to analyze the reports. Ask me about revenues, margins, or specific risks.</div>
+                </div>
+            </div>
+            <div class="chat-controls">
+                <select id="chatCompanySelect" class="modern-select chat-select">
+                    <option value="">Global Context</option>
+                    {% for row in metrics %}
+                    <option value="{{ row.company }}">{{ row.company }}</option>
+                    {% endfor %}
+                </select>
+                <div class="chat-input-wrapper">
+                    <input type="text" id="chatInput" placeholder="Ask a question..." autocomplete="off" onkeypress="if(event.key === 'Enter') sendMessage()"/>
+                    <button onclick="sendMessage()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    </button>
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+    const companyData = {
+        {% for row in metrics %}
+            "{{ row.company }}": {
+                "year": "{{ row.year }}",
+                "growth_drivers": {{ (row.growth_drivers or '').split('\n') | tojson }},
+                "risk_factors": {{ (row.risk_factors or '').split('\n') | tojson }}
+            },
+        {% endfor %}
+    };
+</script>
+<script src="/static/app.js?v=2"></script>
+</body>
+</html>
