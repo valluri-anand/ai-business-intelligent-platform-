@@ -1,8 +1,8 @@
-# AI Bussiness Intelligent Platform
+# AI Powered Intelligent Platform
 
 ## Overview
 
-AI Bussiness Intelligent Platform is an enterprise-grade AI-powered financial intelligence platform designed to automate the ingestion, analysis, and querying of dense financial reports (such as 10-K and 10-Q filings). By leveraging Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG), the platform instantly extracts critical Key Performance Indicators (KPIs) and provides an interactive AI Copilot for qualitative financial research, transforming unstructured documents into structured, actionable insights for investors and financial analysts.
+AI Powered Intelligent Platform is an enterprise-grade AI-powered financial intelligence platform designed to automate the ingestion, analysis, and querying of dense financial reports (such as 10-K and 10-Q filings). By leveraging Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG), the platform instantly extracts critical Key Performance Indicators (KPIs) and provides an interactive AI Copilot for qualitative financial research, transforming unstructured documents into structured, actionable insights for investors and financial analysts.
 
 ## Problem Statement
 
