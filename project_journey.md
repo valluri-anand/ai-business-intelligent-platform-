@@ -1,4 +1,4 @@
-# AI-Powered Investor Intelligence Platform
+# AI Powered Intelligent Platform 
 
 > End-to-end Financial Document Intelligence Platform using Azure OpenAI, Azure AI Search, Azure SQL, FastAPI, React and AKS.
 
