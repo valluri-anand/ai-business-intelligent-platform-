@@ -283,7 +283,7 @@ Deliverables:
 
 ## Final Deliverable
 
-AI-Powered Investor Intelligence Platform
+AI Powered Intelligent Platform
 
 Capabilities:
 
