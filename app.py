@@ -15,7 +15,7 @@ from routes.chat import router as chat_router
 load_dotenv()
 
 app = FastAPI(
-    title="AI-Powered Investor Intelligence Platform"
+    title="AI Powered Intelligent Platform"
 )
 
 
