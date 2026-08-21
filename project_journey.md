@@ -18,8 +18,6 @@ Build an enterprise-grade application capable of:
 
 ## Phase 1: Project Planning
 
-Status: Completed
-
 Activities:
 
 * Selected Financial Statement Analysis as the use case.
@@ -31,8 +29,6 @@ Activities:
 ---
 
 ## Phase 2: Dataset Preparation
-
-Status: Completed
 
 Activities:
 
@@ -48,8 +44,6 @@ data/raw_pdfs/
 ---
 
 ## Phase 3: PDF to Markdown Conversion
-
-Status: Completed
 
 Module:
 
@@ -76,8 +70,6 @@ data/markdown/
 ---
 
 ## Phase 4: Semantic Chunking
-
-Status: Completed
 
 Module:
 
@@ -111,8 +103,6 @@ Document Chunks
 
 ## Phase 5: Azure OpenAI Integration
 
-Status: Completed
-
 Module:
 
 ```text
@@ -132,8 +122,6 @@ Deliverables:
 ---
 
 ## Phase 6: Azure AI Search Integration
-
-Status: Completed
 
 Module:
 
@@ -155,8 +143,6 @@ Deliverables:
 ---
 
 ## Phase 7: KPI Extraction
-
-Status: Completed
 
 Module:
 
@@ -186,8 +172,6 @@ Structured Financial Metrics
 
 ## Phase 8: Azure SQL Integration
 
-Status: Completed
-
 Module:
 
 ```text
@@ -208,8 +192,6 @@ Financial Metrics Database
 
 ## Phase 9: FastAPI Backend
 
-Status: Completed
-
 Objective:
 
 Expose APIs for application functionality.
@@ -224,8 +206,6 @@ Endpoints:
 ---
 
 ## Phase 10: React Frontend
-
-Status: Completed
 
 Pages:
 
@@ -262,8 +242,6 @@ Example Questions:
 
 ## Phase 11: RAG Research Pipeline
 
-Status: Completed
-
 Module:
 
 ```text
@@ -284,8 +262,6 @@ Components:
 
 ## Phase 12: Containerization
 
-Status: Completed
-
 Deliverables:
 
 * Backend Docker Image
@@ -295,8 +271,6 @@ Deliverables:
 ---
 
 ## Phase 13: AKS Deployment
-
-Status: Completed
 
 Deliverables:
 
