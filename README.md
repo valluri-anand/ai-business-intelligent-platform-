@@ -93,9 +93,8 @@ graph TD
 ## Technology Stack
 
 ### Frontend
-* HTML5, CSS3, Vanilla JavaScript
-* Jinja2 Templating
-
+* HTML5, CSS3, JavaScript
+  
 ### Backend
 * Python 3.12
 * FastAPI
