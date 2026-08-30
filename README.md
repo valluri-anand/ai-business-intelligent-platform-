@@ -101,7 +101,7 @@ graph TD
 * Uvicorn
 
 ### AI / ML
-* Azure OpenAI (GPT-4, text-embedding-ada-002)
+* Azure OpenAI (GPT-5, text-embedding-ada-002)
 * LangChain (Semantic Chunking)
 * PyMuPDF4LLM (PDF to Markdown)
 
