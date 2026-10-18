@@ -62,7 +62,7 @@ graph TD
     end
     
     subgraph Cloud ["Azure Cloud & AI Services"]
-        LLM["🧠 Azure OpenAI (GPT-4)"]:::ai
+        LLM["🧠 Azure OpenAI (GPT-5)"]:::ai
         VDB[("📊 Azure AI Search (Vector)")]:::db
         SQL[("🗄️ Azure SQL (Relational)")]:::db
     end
@@ -199,7 +199,7 @@ http://127.0.0.1:8000
 2. **Parsing:** The backend uses `PyMuPDF4LLM` to convert the PDF into clean markdown.
 3. **Chunking & Embedding:** The markdown is semantically chunked, embedded using Azure OpenAI, and indexed into Azure AI Search.
 4. **Extraction:** A targeted LLM prompt extracts defined KPIs (Revenue, Net Income, etc.) and saves them to Azure PostgreSQL.
-5. **Retrieval:** When a user asks a question, the RAG pipeline converts the query to an embedding, retrieves the top `K` most relevant chunks from AI Search, and synthesizes an accurate answer using GPT-4.
+5. **Retrieval:** When a user asks a question, the RAG pipeline converts the query to an embedding, retrieves the top `K` most relevant chunks from AI Search, and synthesizes an accurate answer using GPT-5.
 6. **Rendering:** The FastAPI backend serves the structured metrics and chat responses back to the Vanilla JS frontend for display.
 
 ### Semantic Document Chunking in Action

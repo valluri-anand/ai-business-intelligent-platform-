@@ -116,7 +116,7 @@ Centralize Azure OpenAI configuration and model initialization.
 Deliverables:
 
 * Embedding Model Configuration
-* GPT Model Configuration
+* GPT-5 Model Configuration
 * Azure OpenAI Client
 
 ---
@@ -256,7 +256,7 @@ Components:
 
 * Retriever
 * Prompt Builder
-* GPT Response Generator
+* GPT-5 Response Generator
 
 ---
 
