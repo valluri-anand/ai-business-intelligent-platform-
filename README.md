@@ -160,7 +160,7 @@ project/
 
 ### Step 1 — Clone the Repository
 ```bash
-git clone https://github.com/vallurianand01-commits/ai-business-intelligent-platform-.git
+git clone https://github.com/valluri-anand/ai-business-intelligent-platform-.git
 cd ai-business-intelligent-platform-
 ```
 
