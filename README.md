@@ -1,5 +1,12 @@
 # AI Powered Intelligent Platform
 
+[![Python 3.11](https://img.shields.io/badge/Python-3.11-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Azure OpenAI](https://img.shields.io/badge/Azure%20OpenAI-GPT--5-0078D4?style=for-the-badge&logo=openai&logoColor=white)](https://azure.microsoft.com/en-us/products/ai-services/openai-service)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+
 ## Overview
 
 AI Powered Intelligent Platform is an enterprise-grade AI-powered financial intelligence platform designed to automate the ingestion, analysis, and querying of dense financial reports (such as 10-K and 10-Q filings). By leveraging Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG), the platform instantly extracts critical Key Performance Indicators (KPIs) and provides an interactive AI Copilot for qualitative financial research, transforming unstructured documents into structured, actionable insights for investors and financial analysts.
