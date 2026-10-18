@@ -11,6 +11,20 @@
 
 AI Powered Intelligent Platform is an enterprise-grade AI-powered financial intelligence platform designed to automate the ingestion, analysis, and querying of dense financial reports (such as 10-K and 10-Q filings). By leveraging Large Language Models (LLMs) and Retrieval-Augmented Generation (RAG), the platform instantly extracts critical Key Performance Indicators (KPIs) and provides an interactive AI Copilot for qualitative financial research, transforming unstructured documents into structured, actionable insights for investors and financial analysts.
 
+---
+
+## 🖥️ Platform Dashboard & AI Copilot Interface
+
+<p align="center">
+  <img src="docs/screenshots/dashboard-main.png" width="100%" alt="Financial Intelligence Platform Dashboard" />
+</p>
+
+<p align="center">
+  <img src="docs/screenshots/dashboard-copilot.png" width="100%" alt="AI Copilot Financial Q&A" />
+</p>
+
+---
+
 ## Problem Statement
 
 Financial analysts and investors spend countless hours manually parsing hundreds of pages of complex, unstructured corporate filings to extract essential metrics (Revenue, Operating Margin, Debt) and qualitative insights (Risk Factors, Growth Drivers). 
@@ -146,8 +160,8 @@ project/
 
 ### Step 1 — Clone the Repository
 ```bash
-git clone https://github.com/MY_GITHUB/ai-bussiness-intelligent-platform.git
-cd ai-bussiness-intelligent-platform
+git clone https://github.com/vallurianand01-commits/ai-business-intelligent-platform-.git
+cd ai-business-intelligent-platform-
 ```
 
 ### Step 2 — Create Virtual Environment
@@ -253,9 +267,3 @@ Below is an example of the backend terminal output visualizing exactly how the f
 ## Development
 
 To modify the frontend UI, edit `templates/dashboard.html` and the corresponding assets in the `static/` directory. For backend changes, logic is modularized across `routes/`, `rag/`, and `database/`. Restart the FastAPI server to apply changes.
-
-### Dashboard View
-![Financial Dashboard](docs/screenshots/dashboard-main.png)
-
-### AI Copilot View
-![AI Copilot](docs/screenshots/dashboard-copilot.png)
